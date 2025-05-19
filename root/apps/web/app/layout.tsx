@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-
+import { AppBar } from "../components/Appbar";
+import { Toaster } from "@/components/ui/sonner"
+ 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -23,9 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <AppBar/>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
+             <Toaster />
     </html>
   );
 }
