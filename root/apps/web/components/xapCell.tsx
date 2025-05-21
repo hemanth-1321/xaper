@@ -1,19 +1,30 @@
-export const Xapcell = ({
+export function Xapcell({
   name,
   index,
-  onclick
+  image,
+  onclick,
 }: {
-  name?: string;
+  name: string;
   index: number;
+  image?: string;
   onclick: () => void;
-}) => {
+}) {
   return (
     <div
-      className="border border-gray-300 rounded-md px-4 py-2 text-sm text-gray-800 w-96 cursor-pointer hover:bg-gray-100 transition"
+      className="flex items-center space-x-4 border rounded-lg p-4 cursor-pointer hover:bg-gray-100 w-80"
       onClick={onclick}
     >
-      <div className="font-semibold">#{index + 1}</div>
-      <div>{name || "Unnamed Trigger"}</div>
+      {image ? (
+        <img src={image} alt={name} className="w-12 h-12 rounded-full object-cover" />
+      ) : (
+        <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center text-gray-600">
+          ?
+        </div>
+      )}
+      <div className="text-base font-medium">
+        {index === 0 ? "Trigger: " : `Action ${index}: `}
+        {name}
+      </div>
     </div>
   );
-};
+}

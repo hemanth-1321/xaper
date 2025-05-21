@@ -4,6 +4,7 @@ export interface Zap {
   userId: number;
   Action: ZapAction[];
   trigger: Trigger;
+  image: string;
 }
 
 export interface ZapAction {
@@ -17,6 +18,7 @@ export interface ZapAction {
 }
 
 export interface ActionType {
+  image: any;
   id: string;
   name: string;
 }
@@ -30,6 +32,7 @@ export interface Trigger {
 }
 
 export interface TriggerType {
+  image: any;
   id: string;
   name: string;
 }
